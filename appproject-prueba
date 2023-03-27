@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: prueba
+  namespace: openshift-gitops
+spec:
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  description: Prueba project
+  destinations:
+    - namespace: '*'
+      server: '*'
+  namespaceResourceBlacklist:
+    - group: '*'
+      kind: NetworkPolicy
+    - group: '*'
+      kind: ResourceQuota
+    - group: '*'
+      kind: LimitRange
+  roles:
+    - description: Administradores de Namespace
+      groups:
+        - ARGOCD-admin
+      name: team-admins
+      policies:
+        - 'p, proj:b2b:team-admins, applications, *, b2b/*, allow'
+        - 'p, proj:b2b:team-admins, repositories, *, b2b/*, allow'
+  sourceRepos:
+    - '*'
