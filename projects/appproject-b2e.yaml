@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: b2e
+  namespace: openshift-gitops
+spec:
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  description: B2B project
+  destinations:
+    - namespace: '*'
+      server: '*'
+  namespaceResourceBlacklist:
+    - group: '*'
+      kind: NetworkPolicy
+    - group: '*'
+      kind: ResourceQuota
+    - group: '*'
+      kind: LimitRange
+  sourceRepos:
+    - '*'
