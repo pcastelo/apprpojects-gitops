@@ -21,13 +21,12 @@ spec:
   sourceRepos:
     - '*'
   roles:
+    - description: Administradores de Namespace
       groups:
         - b2b
-      name: b2b
-
-    - name: ci-role
-      description: Sync privileges for guestbook-dev
+      name: team-admins
       policies:
-        - 'p, proj:b2b:b2b, applications, *, b2b/*, allow'
-        - 'p, proj:b2b:b2b, repositories, *, b2b/*, allow'
+        - 'p, proj:b2b:team-admins, applications, *, b2b/*, allow'
+        - 'p, proj:b2b:team-admins, repositories, *, b2b/*, allow'
+
 
