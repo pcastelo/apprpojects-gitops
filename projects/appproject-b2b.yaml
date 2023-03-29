@@ -21,6 +21,10 @@ spec:
   sourceRepos:
     - '*'
   roles:
+      groups:
+        - b2b
+      name: b2b
+
     - name: ci-role
       description: Sync privileges for guestbook-dev
       policies:
