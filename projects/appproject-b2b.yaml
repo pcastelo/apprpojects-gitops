@@ -18,8 +18,6 @@ spec:
       kind: ResourceQuota
     - group: '*'
       kind: LimitRange
-  sourceRepos:
-    - '*'
   roles:
     - description: Administradores de Namespace
       groups:
@@ -28,5 +26,8 @@ spec:
       policies:
         - 'p, proj:b2b:team-admins, applications, *, b2b/*, allow'
         - 'p, proj:b2b:team-admins, repositories, *, b2b/*, allow'
+  sourceRepos:
+    - '*'
+
 
 
